@@ -127,3 +127,23 @@ def game_hash
 end
 
 # Write code here
+def num_points_scored(name)
+  game_hash.each do |key, value|
+    (0...game_hash[key][:players].length).each do |i|
+      if game_hash[key][:players][i][:player_name] == name
+        return game_hash[key][:players][i][:points]
+      end 
+    end
+  end
+end 
+
+def shoe_size(name)
+  game_hash.each do |key, value|
+    (0...game_hash[key][:players].length).each do |i|
+      if game_hash[key][:players][i][:player_name] == name
+        return game_hash[key][:players][i][:shoe_size]
+      end
+    end
+  end
+end
+
