@@ -179,5 +179,18 @@ def player_stats(name)
 end
 
 def big_shoe_rebounds
+  big_shoe_team = nil
+  big_shoe_index = nil
+  big_shoe_player = nil
+  big_shoe_size = 0
   
+  game_hash.each do |key, value|
+    (0...game_hash[key][:players].length).each do |i|
+      if game_hash[key][:players][i][:shoe] > big_shoe_size
+        big_shoe_team = key
+        big_shoe_index = i
+        big_shoe_
+      end
+    end
+  end
 end
