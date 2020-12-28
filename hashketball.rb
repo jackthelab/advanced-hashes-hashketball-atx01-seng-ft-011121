@@ -181,7 +181,6 @@ end
 def big_shoe_rebounds
   big_shoe_team = nil
   big_shoe_index = nil
-  big_shoe_player = nil
   big_shoe_size = 0
   
   game_hash.each do |key, value|
@@ -189,8 +188,10 @@ def big_shoe_rebounds
       if game_hash[key][:players][i][:shoe] > big_shoe_size
         big_shoe_team = key
         big_shoe_index = i
-        big_shoe_
+        big_shoe_size = game_hash[key][:players][i][:shoe]
       end
     end
   end
+  
+  game_hash[big_shoe_team][:players][big_shoe_index][:rebounds]
 end
