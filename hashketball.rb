@@ -158,3 +158,11 @@ end
 def team_names
   game_hash.map { |key, value| game_hash[key][:team_name] }
 end 
+
+def player_numbers(name)
+  game_hash.each do |key, value|
+    if game_hash[key][:team_name] == name
+      return (0...game_hash[key][:players].length).map { 
+    end
+  end
+end
