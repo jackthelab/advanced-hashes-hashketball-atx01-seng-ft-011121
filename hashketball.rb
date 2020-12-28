@@ -127,3 +127,71 @@ def game_hash
 end
 
 # Write code here
+def num_points_scored(name)
+  game_hash.each do |key, value|
+    (0...game_hash[key][:players].length).each do |i|
+      if game_hash[key][:players][i][:player_name] == name
+        return game_hash[key][:players][i][:points]
+      end 
+    end
+  end
+end 
+
+def shoe_size(name)
+  game_hash.each do |key, value|
+    (0...game_hash[key][:players].length).each do |i|
+      if game_hash[key][:players][i][:player_name] == name
+        return game_hash[key][:players][i][:shoe]
+      end
+    end
+  end
+end
+
+def team_colors(name)
+  game_hash.each do |key, value|
+    if game_hash[key][:team_name] == name
+      return game_hash[key][:colors]
+    end
+  end
+end
+
+def team_names
+  game_hash.map { |key, value| game_hash[key][:team_name] }
+end 
+
+
+def player_numbers(name)
+  game_hash.each do |key, value|
+    if game_hash[key][:team_name] == name
+      return (0...game_hash[key][:players].length).map { |i| game_hash[key][:players][i][:number] }
+    end
+  end
+end
+
+def player_stats(name)
+  game_hash.each do |key, value|
+    (0...game_hash[key][:players].length).each do |i|
+      if game_hash[key][:players][i][:player_name] == name
+        return game_hash[key][:players][i]
+      end
+    end
+  end
+end
+
+def big_shoe_rebounds
+  big_shoe_team = nil
+  big_shoe_index = nil
+  big_shoe_size = 0
+  
+  game_hash.each do |key, value|
+    (0...game_hash[key][:players].length).each do |i|
+      if game_hash[key][:players][i][:shoe] > big_shoe_size
+        big_shoe_team = key
+        big_shoe_index = i
+        big_shoe_size = game_hash[key][:players][i][:shoe]
+      end
+    end
+  end
+  
+  game_hash[big_shoe_team][:players][big_shoe_index][:rebounds]
+end
